@@ -1,0 +1,40 @@
+database:
+   type: MYSQL
+   mySQL:
+      host: "localhost"
+      database: "database"
+      username: "username"
+      password: "password"
+      port: 3306
+      useSSL: "false"
+   mongodb:
+      mongo_uri: "yourConnectionLink"
+      database: "DatabaseNameHere-CollectionNameHere"
+menu_properties:
+   size: 54
+   title: "&bTasks availabe"
+   close_item:
+      material: BARRIER
+      name: "&cCerrar"
+      slot: 49
+      lore:
+      - '&f'
+      - '&fClic aqui para cerrar el menu'
+   decorative_item:
+      use: true
+      material: "stained_glass_pane"
+      data: 1
+      name: "&f"
+      lore:
+      - '&f'
+      slot_list:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      use_all_empty_slots: false            

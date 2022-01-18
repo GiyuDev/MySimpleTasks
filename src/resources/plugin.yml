@@ -1,0 +1,10 @@
+main: com.bitnet.paulo.mysimpletasks.Main
+name: MySimpleTasks
+version: 1.0
+api-version: 1.13
+author: Giyu
+
+commands:
+   mysimpletasks:
+      description: ""
+      aliases: [mst, mysimplet, msimplet, msimpletasks]
