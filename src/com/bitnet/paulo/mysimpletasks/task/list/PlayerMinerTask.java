@@ -23,6 +23,7 @@ import org.bukkit.plugin.Plugin;
 import com.bitnet.paulo.mysimpletasks.Main;
 import com.bitnet.paulo.mysimpletasks.task.CustomTask;
 import com.bitnet.paulo.mysimpletasks.utils.XSound;
+import com.connorlinfoot.titleapi.TitleAPI;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 
@@ -125,6 +126,7 @@ public class PlayerMinerTask extends CustomTask implements Listener {
 									this.getTaskCompleted_list().add(p);
 									p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7[&aMySimpleTasks&7] &8> &fYou just completed the &a"+this.getName()+" &ftask, please claim your reward"));
 									XSound.play(p, "ENTITY_PLAYER_LEVELUP");
+									TitleAPI.sendTitle(p, 0, 30, 20, "&a&l"+this.getName(), "&e&oTask completed!");
 								}
 							}
 						}else {
@@ -182,6 +184,7 @@ public class PlayerMinerTask extends CustomTask implements Listener {
 				this.getTaskCompleted_list().add(p);
 				p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7[&aMySimpleTasks&7] &8> &fYou just completed the &a"+this.getName()+" &ftask, please claim your reward"));
 				XSound.play(p, "ENTITY_PLAYER_LEVELUP");
+				TitleAPI.sendTitle(p, 0, 30, 20, "&a&l"+this.getName(), "&e&oTask completed!");
 			}
 		}
 	}

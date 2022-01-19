@@ -21,6 +21,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import com.bitnet.paulo.mysimpletasks.Main;
 import com.bitnet.paulo.mysimpletasks.task.CustomTask;
+import com.connorlinfoot.titleapi.TitleAPI;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 
@@ -131,6 +132,7 @@ public class TaskMenu implements Listener {
 								}
 								if(task.getTaskCompleted_list().contains(p) && (!(check))) {
 									p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7[&aMySimpleTasks&7] &8> &fCongratulations! the reward for the task &a"+task.getName()+" &fwas correctly claimed!"));
+									TitleAPI.sendTitle(p, 0, 30, 20, "&a&l"+task.getName(), "&e&oTask completed!");
 									ItemStack reward = new ItemStack(Material.DIAMOND);
 									reward.setAmount(3);
 									p.getInventory().addItem(reward);
@@ -162,6 +164,7 @@ public class TaskMenu implements Listener {
 						check = Boolean.getBoolean(data.getString(task.getName()+"_isCompleted"));
 						if(task.getTaskCompleted_list().contains(p) && (!(check))) {
 							p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7[&aMySimpleTasks&7] &8> &fCongratulations the reward for the task &a"+task.getName()+" &fwas correctly claimed!"));
+							TitleAPI.sendTitle(p, 0, 30, 20, "&a&l"+task.getName(), "&e&oTask completed!");
 							ItemStack reward = new ItemStack(Material.DIAMOND);
 							reward.setAmount(3);
 							p.getInventory().addItem(reward);

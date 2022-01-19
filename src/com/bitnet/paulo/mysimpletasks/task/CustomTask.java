@@ -18,6 +18,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import com.bitnet.paulo.mysimpletasks.Main;
 import com.bitnet.paulo.mysimpletasks.utils.XSound;
+import com.connorlinfoot.titleapi.TitleAPI;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 
@@ -169,6 +170,7 @@ public abstract class CustomTask {
 							if(getPlayerPoints(p) >= getGoal() && (!(check))) {
 								if(!getTaskCompleted_list().contains(p)) {
 									getTaskCompleted_list().add(p);
+									TitleAPI.sendTitle(p, 0, 30, 20, "&a&l"+getName(), "&e&oTask completed!");
 									p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7[&aMySimpleTasks&7] &8> &fYou just completed the &a"+getName()+" &ftask, please claim your reward"));
 									XSound.play(p, "ENTITY_PLAYER_LEVELUP");
 								}
@@ -207,6 +209,7 @@ public abstract class CustomTask {
 								}
 								if(getPlayerPoints(p) >= getGoal() && (!(check))) {
 									if(!getTaskCompleted_list().contains(p)) {
+										TitleAPI.sendTitle(p, 0, 30, 20, "&a&l"+getName(), "&e&oTask completed!");
 										getTaskCompleted_list().add(p);
 										p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7[&aMySimpleTasks&7] &8> &fYou just completed the &a"+getName()+" &ftask, please claim your reward"));
 										XSound.play(p, "ENTITY_PLAYER_LEVELUP");
