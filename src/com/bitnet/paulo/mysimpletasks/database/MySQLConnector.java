@@ -92,6 +92,12 @@ public class MySQLConnector {
     public boolean isConnected() throws SQLException {
         return !getConnection().isClosed() && getConnection() == null;
     }
+    
+    public void disconnect() throws SQLException {
+    	if(isConnected()) {
+    		this.getConnection().close();
+    	}
+    }
 
 	public boolean existsUser(Player p, String table) throws SQLException {
 		try(PreparedStatement stmt = this.getConnection().prepareStatement("SELECT * FROM "+table+" WHERE player=?")){

@@ -68,4 +68,20 @@ public class DatabaseManager {
 			break;
 		}
 	}
+	
+	public void stop() {
+		switch(this.getType()) {
+		case MYSQL:
+			try {
+				mysql.disconnect();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case MONGO_DB:
+			mongodb.disconnect();
+			break;
+		}
+	}
 }

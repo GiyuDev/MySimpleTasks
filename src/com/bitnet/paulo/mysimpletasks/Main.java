@@ -105,4 +105,9 @@ public class Main extends JavaPlugin {
     private void commands() {
     	this.getCommand("mysimpletasks").setExecutor(new AdminCMD(this));
     }
+    
+    @Override
+    public void onDisable() {
+    	this.getDatabaseManager().stop();
+    }
 }

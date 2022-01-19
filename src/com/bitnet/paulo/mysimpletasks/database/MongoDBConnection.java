@@ -23,6 +23,8 @@ public class MongoDBConnection {
 	
 	private MongoCollection<Document> userColl;
 	
+	private MongoClient client;
+	
 	public MongoCollection<Document> getUserColl(){
 		return userColl;
 	}
@@ -35,7 +37,7 @@ public class MongoDBConnection {
 				.build();
 		configuration.getSocketSettings();
 		SocketSettings.builder().applySettings(socket).build();
-		MongoClient client = MongoClients.create(configuration, information);
+		client = MongoClients.create(configuration, information);
 		String dataString = Main.configuration.getString("database.mongodb.database");
 		String[] split = dataString.split("-");
 		userColl = client.getDatabase(split[0]).getCollection(split[1]);
@@ -46,5 +48,11 @@ public class MongoDBConnection {
 		Document doc = new Document("name",p.getName());
 		Document find = getUserColl().find(doc).first();
 		return find == null ? false : true;
+	}
+	
+	public void disconnect() {
+		if(client != null) {
+			client.close();
+		}
 	}
 }
